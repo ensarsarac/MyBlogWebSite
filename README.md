@@ -60,6 +60,7 @@
   <li>AJAX</li>
   <li>Entity Framework Code First LINQ</li>
   <li>PagedList</li>
+  <li>Fluent Validation</li>
 </ul>
 
 ![Ekran görüntüsü 2023-12-20 214506](https://github.com/ensarsarac/MyBlogWebSite/assets/76907308/3ac9d0f9-23e3-45d2-bf03-57d20155604d)
