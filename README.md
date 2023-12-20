@@ -28,6 +28,7 @@
     <li>PagedList ile listeleme</li>
     <li>404 Hata sayfası</li>
     <li>Erişim izni olmayan kullanıcının erişim hatası sayfası</li>
+    <li>Fluent Validation</li>
   </ul>
   <h3>Admin Rol Özellikleri</h3>
 <ul>
