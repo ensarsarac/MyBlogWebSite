@@ -1,0 +1,57 @@
+﻿@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h2>Yetenek Listesi Tablosu</h2>
+
+</div>
+
+<div class="col-lg-12 grid-margin stretch-card text-center">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Yetenek </th>
+                            <th> Oran </th>
+                            <th> Sil </th>
+                            <th> Düzenle </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    @item.SkillID
+                                </td>
+                                <td> @item.Title</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success me-4" role="progressbar" style="width: @item.Value%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="text-black">%@item.Value</span></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="/Skill/DeleteSkill/@item.SkillID/" class="btn btn-danger">Sil</a>
+                                </td>
+                                <td>
+                                    <a href="/Skill/UpdateSkill/@item.SkillID/" class="btn btn-success">Düzenle</a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/Skill/AddSkill/" class="btn btn-primary m-3">Yeni Yetenek Ekle</a>
+

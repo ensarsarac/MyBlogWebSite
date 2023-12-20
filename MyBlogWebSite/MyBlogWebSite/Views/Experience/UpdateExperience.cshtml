@@ -1,0 +1,49 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "UpdateExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="">Deneyim Düzenleme Sayfası</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+                    @using (Html.BeginForm("UpdateExperience", "Experience", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.ExperienceID)
+                        <div class="form-group">
+                            <label class="form-label">Deneyimin Adı:</label>
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Deneyim Tarihi:</label>
+                            @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Date, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Deneyim Açıklaması:</label>
+                            @Html.TextAreaFor(x => x.Description, 5, 10, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <button class="btn btn-primary" type="submit">Deneyim Güncelle</button>
+                        <a href="/Experience/Index/" class="btn btn-secondary ml-3">İptal</a>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

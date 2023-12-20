@@ -1,0 +1,50 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "UpdateExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="">Mesaj Detayları</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+                    @using (Html.BeginForm("MessageDetails", "Message", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.MessageID)
+                        <div class="form-group">
+                            <label class="form-label">Adı Soyadı:</label>
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Mail:</label>
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Tarih:</label>
+                            @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Mesaj:</label>
+                            @Html.TextAreaFor(x => x.Content, 5, 10, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <a href="/Message/Index/" class="btn btn-secondary ml-3">Listeye Geri Dön</a>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

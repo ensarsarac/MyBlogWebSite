@@ -1,0 +1,90 @@
+﻿
+@model MyBlogWebSite.Areas.Writer.Models.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml"; 
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+
+            <div class="card mb-5 mx-auto" style="width: 18rem;">
+                <div class="card-header mb-3">Profil Bilgileri</div>
+                <img src="~/UserImage/@ViewBag.v.ImageUrl" class="card-img-top rounded-pill mb-3" width="200" height="300" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.v.Name @ViewBag.v.Surname </h5>
+                    <p class="card-text">@ViewBag.v.UserName</p>
+                    <p class="card-text">@ViewBag.v.Email</p>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Profil Bilgilerini Düzenle</h4>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label class="form-label">Ad</label>
+                            <input type="text" asp-for="Name" class="form-control">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Soyadı</label>
+                            <input type="text" asp-for="Surname" class="form-control">
+                            <span asp-validation-for="Surname"class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Kullanıcı Adı</label>
+                            <input type="text" asp-for="UserName" class="form-control">
+                            <span asp-validation-for="UserName"class="text-danger"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Mail</label>
+                            <input type="text" asp-for="Email" class="form-control">
+                            <span asp-validation-for="Email"class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Şifre</label>
+                            <input type="text" asp-for="Password" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Resim</label>
+                            <input type="file" asp-for="Image" class="form-control border-0">
+                        </div>
+
+
+                        @*<div class="form-group">
+            <label>File upload</label>
+            <input type="file" name="img[]" class="file-upload-default">
+            <div class="input-group col-xs-12">
+                <input type="text" class="form-control file-upload-info" placeholder="Upload Image">
+                <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                </span>
+            </div>
+        </div>*@
+
+                        <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                        <a href="/Writer/Default/Index/" class="btn btn-light">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

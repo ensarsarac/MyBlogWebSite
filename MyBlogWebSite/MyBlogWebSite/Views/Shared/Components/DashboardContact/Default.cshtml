@@ -1,0 +1,36 @@
+﻿@model Contact
+
+
+<div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex">
+                <h4 class="card-title">@Model.Title</h4>
+            </div>
+            <div class="preview-list">
+
+                <div>
+                    <p class="text-muted">@Model.Description</p>
+                </div>
+
+                <br /><br />
+                <div class="d-flex align-items-center">
+                    <i class="mr-3 icon-md mdi mdi-mail text-primary "></i>
+                    <p class="mt-2">@Model.Mail</p>
+                </div>
+
+                <br />
+                <div class="d-flex align-items-center">
+                    <i class="mr-3 icon-md mdi mdi-phone text-warning "></i>
+                    <p class="mt-2">@Model.Phone</p>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-muted mt-5">Bana Ulaş!</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

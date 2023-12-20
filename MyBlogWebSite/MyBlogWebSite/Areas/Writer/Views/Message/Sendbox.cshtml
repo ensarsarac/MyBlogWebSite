@@ -1,0 +1,33 @@
+﻿
+@model List<WriterMessage>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h3>Gönderilen Kutusu</h3>
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Alıcı</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ID</th>
+            <td>@item.Receiver</td>
+            <td>@item.Subject</td>
+            <td>@item.Date.ToString("dd-MMM-yyyy")</td>
+            <td><a href="/Writer/Message/MessageDetailsWithSendbox/@item.ID/" class="btn btn-outline-info" btn-lg>Mesajı Gör</a></td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,46 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "UpdateSkill";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Yetenek Güncelleme Sayfası</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+
+                    @using (Html.BeginForm("UpdateSkill", "Skill", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.SkillID)
+                        <div class="form-group">
+                            <label class="form-label">Yetenek Adı:</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Değer:</label>
+                            @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Value, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <button class="btn btn-primary" type="submit">Yetenek Güncelle</button>
+                        <a href="/Skill/Index/" class="btn btn-secondary ml-3">İptal</a>
+
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

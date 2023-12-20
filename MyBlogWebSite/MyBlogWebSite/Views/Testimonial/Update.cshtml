@@ -1,0 +1,52 @@
+﻿
+@model Testimonial
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="">Referans Detay Sayfası</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+                    @using (Html.BeginForm("Update", "Testimonial", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.TestimonialsID)
+                        <div class="form-group">
+                            <label class="form-label">Ad Soyad:</label>
+                            @Html.TextBoxFor(x => x.ClientName, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Şirket:</label>
+                            @Html.TextBoxFor(x => x.Company, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Resim Yolu:</label>
+                            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Yorum:</label>
+                            @Html.TextAreaFor(x => x.Comment, 5, 10, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <button class="btn btn-primary" type="submit">Kaydet</button>
+                        <a href="/Testimonial/Index/" class="btn btn-secondary ml-3">İptal</a>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

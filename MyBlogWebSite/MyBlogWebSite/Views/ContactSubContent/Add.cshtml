@@ -1,0 +1,50 @@
+﻿
+@model Contact
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Yeni İletişim Bilgisi Ekle</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    @using (Html.BeginForm("Add", "ContactSubContent", FormMethod.Post))
+                    {
+
+                        <div class="form-group">
+                            <label class="form-label">Başlık:</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Mail:</label>
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Telefon:</label>
+                            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="form-label">Açıklama:</label>
+                            @Html.TextAreaFor(x => x.Description,10,6, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <button class="btn btn-primary" type="submit">Kaydet</button>
+                        <a href="/ContactSub/Index/" class="btn btn-secondary ml-3">İptal</a>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

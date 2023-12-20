@@ -1,0 +1,80 @@
+﻿
+@model List<AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<button type="button" id="yazargetir" class="btn btn-primary mb-3 ">Yazarları Getir</button>
+<div id="tablelist">
+</div>
+
+<button type="button" id="idyegoregetir" class="btn btn-primary my-3 ">ID'ye Göre Getir</button>
+<br />
+<input type="text" id="userwithid" placeholder="ID giriniz" />
+<div id="tablelist2">
+</div>
+
+
+@section Scripts{
+
+    <script>
+        $("#yazargetir").click(function () {
+
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                url: "/Writers/GetUserList/",
+                type: "Get",
+
+                success: function (func) {
+                    let users = jQuery.parseJSON(func);
+                    console.log(users);
+                    let htmlstr = "<table class='table table-bordered table-striped'> <tr> <th>#</th> <th>Resim</th> <th>Ad</th><th>Soyad</th><th>Mail</th> </tr>";
+                    $.each(users, (index, value) => {
+                        htmlstr += `<tr><td style='width:150px;'>${value.Id}</td> <td style='width:150px;'><img src='/UserImage/${value.ImageUrl}' style='width:100px;height:100px;'/></td> <td>${value.Name}</td> <td>${value.Surname}</td><td>${value.Email}</td> </tr>`
+                    });
+                    htmlstr += "</table>";
+                    $("#tablelist").html(htmlstr);
+                }
+            });
+
+        });
+
+    </script>
+
+    <script>
+
+        $("#idyegoregetir").click(function () {
+            let userid = $("#userwithid").val();
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Writers/GetById/",
+                data: { UserID:userid},
+
+                success: function (func) {
+                    let result = jQuery.parseJSON(func);
+                    console.log(result)
+                    let htmlstr2 = "<table class='table table-bordered table-striped'> <tr> <th>#</th> <th>Resim</th> <th>Ad</th><th>Soyad</th><th>Mail</th> </tr>";
+                
+                    htmlstr2 += `<tr><td style='width:150px;'>${result.Id}</td> <td style='width:150px;'><img src='/UserImage/${result.ImageUrl}' style='width:100px;height:100px;'/></td> <td>${result.Name}</td> <td>${result.Surname}</td><td>${result.Email}</td> </tr>`
+                   
+                    htmlstr2 += "</table>";
+                    $("#tablelist2").html(htmlstr2);
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>

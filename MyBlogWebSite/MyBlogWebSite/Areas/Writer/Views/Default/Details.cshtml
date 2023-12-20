@@ -1,0 +1,37 @@
+﻿
+@model Announcement
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title p-3">
+                        <h4>@Model.Title</h4>
+
+                    </div>
+                </div>
+                <div class="card-body p-5">
+                    @Model.Content
+                </div>
+
+                <div class="card-footer">
+                    @Model.Date.ToShortDateString() <br />
+                    @Model.Status
+                </div>
+                
+            </div>
+            <br />
+            <a href="/Writer/Default/Index/" class="btn btn-outline-twitter">Duyuru Listesine Dön</a>
+
+        </div>
+    </div>
+</div>
+
